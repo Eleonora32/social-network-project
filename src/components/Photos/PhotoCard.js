@@ -1,5 +1,6 @@
 import React, {useContext} from 'react'
 import {GlobalContext} from "../App"
+import {connect} from "react-redux"
 
 
 const PhotoCard = ({photo}) => {
@@ -23,4 +24,11 @@ const PhotoCard = ({photo}) => {
     )
 }
 
-export default PhotoCard
+
+const mapStateToProps = state => {
+    return {
+        photo: state.persons.activePerson
+    }
+}
+
+export default connect(mapStateToProps, null)(PhotoCard)

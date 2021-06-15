@@ -1091,7 +1091,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.1.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.5", "@babel/runtime@^7.14.0", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.1.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.5", "@babel/runtime@^7.9.2":
   version "7.14.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.14.0.tgz#46794bc20b612c5f75e62dd071e24dfd95f1cbe6"
   integrity sha512-JELkvo/DlpNdJ7dlyw/eY7E0suy5i5GQH+Vlxaq1nsNJ+H7f4Vtv3jMeCEgRhZZQFXTjldYfQgv2qmM6M1v5wA==
@@ -1102,6 +1102,13 @@
   version "7.12.18"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.18.tgz#af137bd7e7d9705a412b3caaf991fe6aaa97831b"
   integrity sha512-BogPQ7ciE6SYAUPtlm9tWbgI9+2AgqSam6QivMgXgAT+fKbgppaj4ZX15MHeLC1PVF5sNk70huBu20XxWOs8Cg==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
+"@babel/runtime@^7.14.5":
+  version "7.14.6"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.14.6.tgz#535203bc0892efc7dec60bdc27b2ecf6e409062d"
+  integrity sha512-/PCB2uJ7oM44tz8YhC4Z/6PeOKXp4K588f+5M3clr1M4zbqztlo0XEfJ2LEzj/FgwfgGcIdl8n7YYjTCI0BYwg==
   dependencies:
     regenerator-runtime "^0.13.4"
 
@@ -9016,12 +9023,12 @@ react-app-polyfill@^2.0.0:
     regenerator-runtime "^0.13.7"
     whatwg-fetch "^3.4.1"
 
-react-cool-form@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/react-cool-form/-/react-cool-form-0.3.1.tgz#df3f05a4c1b5d472b4340e35c5a6fbf32fcf69c7"
-  integrity sha512-PjOOzImdfmIBhGYhsANpWU05rj8kEwa8CDr68aQSDXCv8SDFqsbeOBdv+qQsQaSxaBmR7+vk5Vac1xzrs0uRGw==
+react-cool-form@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/react-cool-form/-/react-cool-form-0.4.0.tgz#980f063a2d727e755d1d0cf3c454d4ca69b0eb26"
+  integrity sha512-CtbLmpQF50002QiFQ2NtPY0m13naK7Qm23riJyYckFY9lZFUB6KXMQcp9zlC1QE03gPYIPlF2VJ3hG4cFmRA6g==
   dependencies:
-    "@babel/runtime" "^7.14.0"
+    "@babel/runtime" "^7.14.5"
     dequal "^2.0.2"
 
 react-dev-utils@^11.0.3:

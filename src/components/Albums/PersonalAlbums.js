@@ -5,8 +5,8 @@ import AddPhoto from "../Photos/AddPhoto";
 import {connect} from "react-redux";
 
 
-const PersonalAlbums = ({personId, activePerson, albums}) => {
-    const { photos, addNewPhoto} = useContext(GlobalContext)
+const PersonalAlbums = ({personId, activePerson, albums, setAddPhotoMode, photos}) => {
+    // const { photos, addNewPhoto} = useContext(GlobalContext)
     const renderAlbum = () => {
         const personalList = albums.filter(a => a.personId === personId)
         return personalList.map(a => (
@@ -16,15 +16,15 @@ const PersonalAlbums = ({personId, activePerson, albums}) => {
                     {renderPhotosByAlbum(a.id)}
                 </div>
                 <div>
-                    {/* { activePerson === personId ? <AddPhoto albumId={a.id} addNewPhoto={addNewPhoto} /> : null } */}
+                    { activePerson === personId || setAddPhotoMode ? <AddPhoto albumId={a.id} /> : null }
                 </div>
             </div>
         ))
     }
 
     const renderPhotosByAlbum = albumId => {
-        const albumPhotos = photos.filter(photo => photo.albumId === albumId)
-        return albumPhotos.map(photo => (<PhotoCard key={photo.id} photo={photo} />))
+        photos.filter(photo => photo.albumId === albumId)
+        return photos.map(photo => (<PhotoCard key={photo.id} photo={photo} />))
     }
 
     return (
@@ -34,7 +34,9 @@ const PersonalAlbums = ({personId, activePerson, albums}) => {
 const mapStateToProps = state => {
     return {
         activePerson: state.persons.activePerson,
-        albums: state.albums.list
+        albums: state.albums.list,
+        photos: state.photos.list,
+        setAddPhotoMode: state.photos.setAddPhotoMode
     }
 }
 export default connect(mapStateToProps, null)(PersonalAlbums)

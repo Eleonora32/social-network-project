@@ -13,6 +13,10 @@ const InitialState = {
         list: [],
         addAlbumMode: false,
         albumById: {}
+    },
+    photos: {
+        list: [],
+        addPhotoMode: false
     }
 }
 

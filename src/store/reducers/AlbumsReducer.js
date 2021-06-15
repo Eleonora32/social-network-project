@@ -15,7 +15,7 @@ export const AlbumsReducer = (state={}, action) => {
             }
             
         case CHANGE_ADD_ALBUM:
-            return {...state,  addAlbumMode: !state.addAlbumMode}
+            return {...state, addAlbumMode: !state.addAlbumMode}
 
         case SET_ALBUM_BY_ID:
              idx = state.list.findIndex(a=>a.id === action.payload)

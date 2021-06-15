@@ -11,14 +11,16 @@ import Navigation from "./Navigation";
 import Pages from "../layouts/Pages";
 import {getPosts} from "../store/actions/posts";
 import {getAlbums} from "../store/actions/albums";
+import {getPhotos} from "../store/actions/photos"
 
 export const GlobalContext = React.createContext(null)
 
-const App = ({initPosts, initAlbums}) => {
+const App = ({initPosts, initAlbums, initPhotos}) => {
 
     useEffect(()=>{
         initPosts()
         initAlbums()
+        initPhotos()
     }, [])
 
     // const [albums, setAlbums] = useState(albumsInitial)
@@ -84,7 +86,8 @@ const App = ({initPosts, initAlbums}) => {
 const mapDispatchToProps = dispatch => {
     return {
         initPosts: () => dispatch(getPosts()),
-        initAlbums: () => dispatch(getAlbums())
+        initAlbums: () => dispatch(getAlbums()),
+        initPhotos: () => dispatch(getPhotos())
     }
 }
 

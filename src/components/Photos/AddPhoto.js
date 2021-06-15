@@ -1,6 +1,9 @@
 import React, {useState} from "react"
+import {connect} from "react-redux";
+import {CHANGE_ADD_PHOTO} from "../../store/typesList";
+import {addPhoto} from "../../store/actions/photos"
 
-const AddPhoto = ({albumId, addNewPhoto}) => {
+const AddPhoto = ({albumId, addNewPhoto, setAddPhotoMode}) => {
 
     const [photo, setPhoto] = useState({
         albumId,
@@ -22,6 +25,8 @@ const AddPhoto = ({albumId, addNewPhoto}) => {
             title: '',
             src: ''
         })
+        setAddPhotoMode()
+
     }
 
     return (
@@ -41,4 +46,19 @@ const AddPhoto = ({albumId, addNewPhoto}) => {
     )
 }
 
-export default AddPhoto
+
+
+
+const mapStateToProps = state => {
+    return {
+        activePerson: state.persons.activePerson
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        setAddPhotoMode: () => dispatch({type: CHANGE_ADD_PHOTO}),
+        addNewPhoto: photo => dispatch(addPhoto(photo))
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(AddPhoto)

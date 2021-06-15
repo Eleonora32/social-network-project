@@ -1,21 +1,20 @@
 import React, {Fragment, useContext, useEffect, useState} from "react"
 import {useParams} from 'react-router-dom'
 import {connect} from "react-redux"
-import {GlobalContext} from "../App"
 import AddAlbum from "../Albums/AddAlbum"
 import PersonalAlbums from "../Albums/PersonalAlbums"
 import AddPost from "../Posts/AddPost"
 import PersonalBlog from "../Posts/PersonalBlog"
 import {editPerson, setPersonById} from "../../store/actions/persons";
 import EditPersonForm from "./EditPersonForm";
-import {CHANGE_ADD_POST, CHANGE_EDIT_MODE} from "../../store/typesList";
+import {CHANGE_ADD_POST, CHANGE_EDIT_MODE, CHANGE_ADD_ALBUM} from "../../store/typesList";
 
 
-const PersonProfile = ({activePerson, editMode, setEditMode, setLocalPerson, person, addPostMode, setAddPostMode}) => {
+const PersonProfile = ({activePerson, editMode, setEditMode, setLocalPerson, person, addPostMode, setAddPostMode, addAlbumMode, setAddAlbumMode}) => {
 
     const {id} = useParams()
-    const {addNewAlbum} = useContext(GlobalContext)
-    const [addAlbum, setAddAlbum] = useState(false)
+    // const {addNewAlbum} = useContext(GlobalContext)
+    // const [addAlbum, setAddAlbum] = useState(false)
 
 
     useEffect(() => {
@@ -68,7 +67,7 @@ const PersonProfile = ({activePerson, editMode, setEditMode, setLocalPerson, per
 
 
     const renderEditButton = () => {
-        if (activePerson !== person.id || editMode || addAlbum || addPostMode) return null
+        if (activePerson !== person.id || editMode || addAlbumMode|| addPostMode) return null
         return (
             <div className="w-100">
                 <button onClick={editButtonHandle} className="w-100 btn btn-success my-2">Edit</button>
@@ -85,7 +84,7 @@ const PersonProfile = ({activePerson, editMode, setEditMode, setLocalPerson, per
 
     const addAlbumButtonHandle = event => {
         event.preventDefault()
-        setAddAlbum(true)
+        setAddAlbumMode()
     }
 
     const addPostButtonHandle = event => {
@@ -93,18 +92,15 @@ const PersonProfile = ({activePerson, editMode, setEditMode, setLocalPerson, per
         setAddPostMode()
     }
 
-    const addNewAlbumHandle = formData => {
-        addNewAlbum(formData)
-        setAddAlbum(false)
-    }
+
 
     const renderPersonInfo = () => {
 
-        if (addAlbum) {
-            return (<AddAlbum onFinish={addNewAlbumHandle}/>)
+        if (addAlbumMode) {
+            return (<AddAlbum/>)
         }
         if (addPostMode) {
-            return <AddPost />;
+            return <AddPost/>;
         }
         if (editMode) {
             return null
@@ -137,7 +133,8 @@ const mapStateToProps = state => {
         activePerson: +state.persons.activePerson,
         person: state.persons.personById,
         editMode: state.persons.editMode,
-        addPostMode: state.posts.addPostMode
+        addPostMode: state.posts.addPostMode,
+        addAlbumMode: state.albums.addAlbumMode
     }
 }
 
@@ -146,7 +143,8 @@ const mapDispatchToProps = dispatch => {
         editLocalPerson: person => dispatch(editPerson(person)),
         setLocalPerson: id => dispatch(setPersonById(id)),
         setEditMode: () => dispatch({type: CHANGE_EDIT_MODE}),
-        setAddPostMode: () => dispatch({type: CHANGE_ADD_POST})
+        setAddPostMode: () => dispatch({type: CHANGE_ADD_POST}),
+        setAddAlbumMode: () => dispatch({type: CHANGE_ADD_ALBUM})
     }
 }
 

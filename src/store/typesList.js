@@ -14,3 +14,7 @@ export const ADD_ALBUM = 'ADD_AlLBUM'
 export const CHANGE_ADD_ALBUM = 'CHANGE_ADD_ALBUM'
 export const FETCH_ALBUM = 'FETCH_ALBUM'
 export const SET_ALBUM_BY_ID = 'SET_ALBUM_BY_ID'
+
+export const FETCH_PHOTOS = 'FETCH_POSTS'
+export const CHANGE_ADD_PHOTO = 'CHANGE_ADD_POST'
+export const ADD_PHOTO = 'ADD_POST'

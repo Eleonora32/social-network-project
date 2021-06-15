@@ -4,7 +4,7 @@ import {CHANGE_ADD_ALBUM} from "../../store/typesList";
 import {addAlbum} from "../../store/actions/albums"
 
 
-const AddAlbum = ({addLocalAlbum, activePerson}) => {
+const AddAlbum = ({addLocalAlbum, activePerson,  setAlbumsMode}) => {
     const [formData, setFormData] = useState({
         personId: activePerson,
         title: ''
@@ -17,6 +17,7 @@ const AddAlbum = ({addLocalAlbum, activePerson}) => {
     const onSubmit = event => {
         event.preventDefault()
         addLocalAlbum(formData)
+        setAlbumsMode()
     }
 
     return (
