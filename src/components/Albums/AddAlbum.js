@@ -14,14 +14,18 @@ const AddAlbum = ({addLocalAlbum, activePerson,  setAlbumsMode}) => {
         setFormData({ ...formData, [event.target.name]: event.target.value })
     }
 
-    const onSubmit = event => {
-        event.preventDefault()
-        addLocalAlbum(formData)
-        setAlbumsMode()
-    }
+    // const onSubmit = event => {
+    //     event.preventDefault()
+    //     addLocalAlbum(formData)
+    //     setAlbumsMode()
+    // }
 
     return (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={event => {
+            event.preventDefault()
+            addLocalAlbum(formData)
+            setAlbumsMode()
+        }}>
             <div className="form-group mb-2">
                 <label>Title</label>
                 <input type="text" className="form-control" name="title" onChange={changeHandle}/>

@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
 import {GlobalContext} from "../App"
-import {connect} from "react-redux"
+// import {connect} from "react-redux"
 
 
 const PhotoCard = ({photo}) => {
@@ -14,8 +14,8 @@ const PhotoCard = ({photo}) => {
                 <div className="card-body">
                     <p className="card-title">{photo.title}</p>
                     <p className="card-text">
-                        <button onClick={()=>{photoAction(photo.id, 'like')}}>Like({photo.like})</button>
-                        <button onClick={()=>{photoAction(photo.id, 'dislike')}}>DisLike({photo.dislike})</button>
+                        <button onClick={()=>{photoAction(photo.id, 'like')}}>Like({+photo.like})</button>
+                        <button onClick={()=>{photoAction(photo.id, 'dislike')}}>DisLike({+photo.dislike})</button>
                     </p>
                 </div>
             </div>
@@ -25,10 +25,10 @@ const PhotoCard = ({photo}) => {
 }
 
 
-const mapStateToProps = state => {
-    return {
-        photo: state.persons.activePerson
-    }
-}
+// const mapStateToProps = state => {
+//     return {
+//         photo: state.photos.list
+//     }
+// }
 
-export default connect(mapStateToProps, null)(PhotoCard)
+export default PhotoCard

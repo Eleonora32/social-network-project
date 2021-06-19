@@ -25,7 +25,7 @@ const AddPhoto = ({albumId, addNewPhoto, setAddPhotoMode}) => {
             title: '',
             src: ''
         })
-        setAddPhotoMode()
+        // setAddPhotoMode()
 
     }
 
@@ -49,16 +49,16 @@ const AddPhoto = ({albumId, addNewPhoto, setAddPhotoMode}) => {
 
 
 
-const mapStateToProps = state => {
-    return {
-        activePerson: state.persons.activePerson
-    }
-}
+// const mapStateToProps = state => {
+//     return {
+//         activePerson: state.persons.activePerson
+//     }
+// }
 
 const mapDispatchToProps = dispatch => {
     return {
-        setAddPhotoMode: () => dispatch({type: CHANGE_ADD_PHOTO}),
+        // setAddPhotoMode: () => dispatch({type: CHANGE_ADD_PHOTO}),
         addNewPhoto: photo => dispatch(addPhoto(photo))
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(AddPhoto)
+export default connect(null, mapDispatchToProps)(AddPhoto)
