@@ -16,7 +16,9 @@ const InitialState = {
     },
     photos: {
         list: [],
-        addPhotoMode: false
+        like: 0,
+        dislike:0
+
     }
 }
 

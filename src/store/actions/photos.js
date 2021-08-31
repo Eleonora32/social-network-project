@@ -1,5 +1,5 @@
 import photosInitial, {setPhotosToStorage} from '../../data/photos'
-import {ADD_PHOTO, FETCH_PHOTOS} from "../typesList";
+import {ADD_PHOTO, FETCH_PHOTOS, EDIT_PHOTO} from "../typesList";
 
 
 
@@ -25,6 +25,34 @@ export const addPhoto = photo => {
         }
     }
 }
+
+
+// const photoAction = (id, action) => {
+//     const newPhotos = [...photos]
+//     let idx = newPhotos.findIndex( p=>p.id === id)
+//     if (idx ===-1) return null
+//     newPhotos[idx][action]++
+//     setPhotos(newPhotos)
+//     setPhotosToStorage(newPhotos)
+// }
+
+export const editPhoto = (id) => {
+    return (dispatch, getState) => {
+      try {
+        const photo = getState().photos.list.find((photo) => photo.id === id);
+        editPhotoOnServer(photo);
+      } catch (err) {
+        console.log(err.message);
+      }
+    };
+  };
+  
+  const editPhotoOnServer = (photo) => {
+    const idx = photosInitial.findIndex((p) => p.id === photo.id);
+    if (idx === -1) return null;
+    photosInitial.splice(idx, 1, photo);
+    setPhotosToStorage(photosInitial);
+  };
 
 const fetchPhotos = data => {
     return {

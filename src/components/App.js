@@ -23,39 +23,9 @@ const App = ({initPosts, initAlbums, initPhotos}) => {
         initPhotos()
     }, [])
 
-    // const [albums, setAlbums] = useState(albumsInitial)
+   
 
-    // const addNewAlbum = formData => {
-    //     const newAlbums = [...albums, {...formData, id: Date.now()}]
-    //     setAlbums(newAlbums)
-    //     setAlbumsToStorage(newAlbums)
 
-    // }
-
-    // const getAlbumById = id => {
-    //     const idx = albums.findIndex(album => album.id === id)
-    //     if (idx === -1) {
-    //         return null
-    //     }
-    //     return albums[idx]
-    // }
-
-    const [photos, setPhotos] = useState(photosInitial)
-
-    const addNewPhoto = formData => {
-        const newPhotos = [...photos, {...formData, id: Date.now(), like: 0, dislike: 0}]
-        setPhotos(newPhotos)
-        setPhotosToStorage(newPhotos)
-    }
-
-    const photoAction = (id, action) => {
-        const newPhotos = [...photos]
-        let idx = newPhotos.findIndex( p=>p.id === id)
-        if (idx ===-1) return null
-        newPhotos[idx][action]++
-        setPhotos(newPhotos)
-        setPhotosToStorage(newPhotos)
-    }
 
     // const [posts, setPosts] = useState(postsInitial);
     //
@@ -71,9 +41,7 @@ const App = ({initPosts, initAlbums, initPhotos}) => {
             // albums,
             // addNewAlbum,
             // getAlbumById,
-            photos,
-            addNewPhoto,
-            photoAction,
+           
             // posts,
             // addNewPost
         }}>

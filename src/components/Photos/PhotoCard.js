@@ -1,11 +1,13 @@
 import React, {useContext} from 'react'
-import {GlobalContext} from "../App"
-// import {connect} from "react-redux"
+import AddReaction from './AddReaction'
+
+
 
 
 const PhotoCard = ({photo}) => {
 
-    const {photoAction} = useContext(GlobalContext)
+    // const {photoAction} = useContext(GlobalContext)
+    //  console.log(photo.title);
 
     return (
         <div className="col-6 col-sm-4 col-md-3">
@@ -14,8 +16,8 @@ const PhotoCard = ({photo}) => {
                 <div className="card-body">
                     <p className="card-title">{photo.title}</p>
                     <p className="card-text">
-                        <button onClick={()=>{photoAction(photo.id, 'like')}}>Like({+photo.like})</button>
-                        <button onClick={()=>{photoAction(photo.id, 'dislike')}}>DisLike({+photo.dislike})</button>
+                    <AddReaction photo={photo} />
+                       
                     </p>
                 </div>
             </div>
@@ -25,10 +27,6 @@ const PhotoCard = ({photo}) => {
 }
 
 
-// const mapStateToProps = state => {
-//     return {
-//         photo: state.photos.list
-//     }
-// }
+
 
 export default PhotoCard

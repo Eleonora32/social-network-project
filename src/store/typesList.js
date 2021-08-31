@@ -18,3 +18,6 @@ export const SET_ALBUM_BY_ID = 'SET_ALBUM_BY_ID'
 export const FETCH_PHOTOS = 'FETCH_POSTS'
 export const CHANGE_ADD_PHOTO = 'CHANGE_ADD_POST'
 export const ADD_PHOTO = 'ADD_POST'
+export const ADD_LIKE_TO_PHOTO = "ADD_LIKE_TO_PHOTO"
+export const ADD_DISLIKE_TO_PHOTO = "ADD_DISLIKE_TO_PHOTO"
+export const EDIT_PHOTO = "EDIT_PHOTO"
